@@ -1,0 +1,79 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+
+.page-footer {
+    background-color: black;
+}
+
+.background-picture {
+  background: url(../Images/starry-night-sky-2890467.jpg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.discord-image {
+  height: 32px;
+  width: 32px;
+  vertical-align: middle;
+}
+
+
+
+.parallax {
+  /* The image used */
+  background-image: url("../Images/starry-night-sky-2890467.jpg");
+
+  /* Full height */
+  height: 100%;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.black-text-border {
+  text-shadow: 4px 4px black;
+}
+
+.grey-text-border {
+  text-shadow: 2px 2px grey;
+}
+
+.size-adjust {
+  background-image: url("../images/Guild-Name.png");
+}
+
+.superdarkblue {
+  background-color: #070129;
+}
+
+.intro-page-height-adjust {
+  height: 400px;
+}
+
+.blockquote-orange {
+  margin: 20px 0;
+  padding-left: 1.5rem;
+  border-left: 5px solid #ff9800;
+}
+
+.nav-highlight:hover {
+  background-color: rgb(41, 41, 41);
+}
+
+.bold {
+  font-weight: bold;
+}
+.bold-und {
+  font-weight: bold;
+  text-decoration: underline;
+}
