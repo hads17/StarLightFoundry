@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>StarLight Foundry</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="css/stylesheet.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+
+</head>
+
+<body class="grey darken-4">
+  <nav class="black">
+    <div class="nav-wrapper">
+      <ul id="nav-mobile" class="hide-on-med-and-down left">
+        <li class="logged-in acccounttab" style="display: none;"><a href="#" class="nav-highlight">My Account</a></li>
+        <li class="logged-in myproductstab" style="display: none;"><a href="#" class="nav-highlight">My Products</a>
+        </li>
+        <li class="admin" style="display: none;"><a href="#" class="modal-trigger nav-highlight"
+            data-target="modal-signup">Create
+            User</a></li>
+        <li class="logged-in" style="display: none;"><a href="#" id="logout" class="nav-highlight">Logout</a></li>
+        <li class="logged-out" style="display: none;"><a href="#" class="modal-trigger nav-highlight"
+            data-target="modal-login">Member
+            Sign In</a></li>
+      </ul>
+      <ul id="nav-mobile" class="hide-on-med-and-down right">
+        <li><a href="#" class='hometab nav-highlight' data-target="home-page">Home</a></li>
+        <li class="browseproductstab"><a href="#" class="nav-highlight">Browse Products</a></li>
+        <li><a href="#" class="memberlisttab">Member List</a></li>
+        <li class="logged-out" style="display: none;"><a href="https://forms.gle/AUuduiuHzY44c7fk6"
+            class="modal-trigger nav-highlight" data-target="modal-createUser">Apply for Membership</a></li>
+        <li><a href="https://discord.gg/BHnwF68vGX" class="nav-highlight"><img class="activator discord-image"
+              src="Images/discord-512.jpg"></a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- CREATE USER MODAL -->
+
+  <div id="modal-signup" class="modal grey darken-3">
+    <div class="modal-content">
+      <h4>Create User</h4><br />
+      <form id="signup-form">
+        <div class="input-field">
+          <input type="email" id="signup-email" required />
+          <label for="signup-email">Email Address</label>
+        </div>
+        <div class="input-field">
+          <input type="password" id="signup-password" required />
+          <label for="signup-password">Enter a Password</label>
+        </div>
+        <div class="input-field">
+          <input type="text" id="signup-displayName" required />
+          <label for="signup-displayName">Display Name</label>
+        </div>
+        <div class="input-field">
+          <select id="signup-memberType" required>
+            <option value="" disabled selected>Choose Member Type</option>
+            <option value="1">Director</option>
+            <option value="2">Officer</option>
+            <option value="3">Member</option>
+          </select>
+          <label for="signup-memberType">Member Type</label>
+        </div>
+        <button class="btn orange">Create User</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- LOGIN MODAL -->
+
+  <div id="modal-login" class="modal grey darken-3">
+    <div class="modal-content">
+      <h4>login</h4><br />
+      <form id="login-form">
+        <div class="input-field">
+          <input type="email" id="login-email" required />
+          <label for="login-email">Email Address</label>
+        </div>
+        <div class="input-field">
+          <input type="password" id="login-password" required />
+          <label for="login-password">Password</label>
+        </div>
+        <button class="btn orange">Sign In</button>
+        <div id="" onClick="resetPassBtn()" class='btn blue darken-2 resetPassBtn'>Reset Password</div>
+      </form>
+    </div>
+  </div>
+
+
+  <!-- Add Prodcuts Modal -->
+  <div id='modal-addproduct' class="modal grey darken-3">
+    <div class="modal-content">
+      <blockquote class="blockquote-orange">
+        <h4>Add Product</h4>
+      </blockquote>
+      <form id="addproduct-form">
+        <div class="input-field">
+          <input type="text" id="addproduct-name" data-length="30" maxlength="30" required />
+          <label for="addproduct-name">Item Name</label>
+        </div>
+        <div class="input-field">
+          <input type="text" id="addproduct-description" data-length="150" maxlength="150" required />
+          <label for="addproduct-description">Item Description</label>
+        </div>
+        <div class="input-field">
+          <input type="text" id="addproduct-quantity" data-length="20" maxlength="20" required />
+          <label for="addproduct-description">Quantity Available</label>
+        </div>
+        <div class="input-field">
+          <input type="text" id="addproduct-price" data-length="20" maxlength="20" required />
+          <label for="addproduct-price">Item Price</label>
+        </div>
+        <button class="btn orange">Add Product</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Edit Prodcuts Modal -->
+  <div id='modal-editproduct' class="modal grey darken-3">
+    <div class="modal-content">
+      <blockquote class="blockquote-orange">
+        <h4>Edit Product</h4>
+      </blockquote>
+      <form id="editproduct-form">
+        <div class="input-field">
+          <input type="text" id="editproduct-name" data-length="30" maxlength="30" required />
+          <label for="addproduct-name">Item Name</label>
+        </div>
+        <div class="input-field">
+          <input type="text" id="editproduct-description" data-length="150" maxlength="150" required />
+          <label for="editproduct-description">Item Description</label>
+        </div>
+        <div class="input-field">
+          <input type="text" id="editproduct-quantity" data-length="20" maxlength="20" required />
+          <label for="editproduct-description">Quantity Available</label>
+        </div>
+        <div class="input-field">
+          <input type="text" id="editproduct-price" data-length="20" maxlength="20" required />
+          <label for="editproduct-price">Item Price</label>
+        </div>
+        <div id='' class="btn orange editproduct-submit" onClick="editProductSubmit(this.id)">Edit Product</div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Edit Crafter Modal ADMIN ONLY-->
+  <div id='modal-editcrafteraccount' class="modal grey darken-3">
+    <div class="modal-content">
+      <blockquote class="blockquote-orange">
+        <h4 class="white-text">Account Info</h4>
+      </blockquote>
+      <form id="editcrafteraccount-form">
+        <h6 class="white-text">Display Name</h6>
+        <input type="text" id="editcrafteraccount-displayname" value='' required />
+        <label for="editcrafteraccount-displayname"></label>
+        <div class="input-field">
+          <h6 class="white-text">About Me</h6>
+          <input type="text" id="editcrafteraccount-aboutme" value='' required />
+          <label for="editcrafteraccount-aboutme"></label>
+        </div>
+        <div class="input-field">
+          <h6 class="white-text">Discord</h6>
+          <input type="text" id="editcrafteraccount-discord" value='' required />
+          <label for="editcrafteraccount-discord"></label>
+        </div>
+        <div class="input-field">
+          <h6 class="white-text">AoC Character Name</h6>
+          <input type="text" id="editcrafteraccount-charactername" value='' required />
+          <label for="editcrafteraccount-charactername"></label>
+        </div>
+        <div class="input-field">
+          <h6 class="white-text">Profile Picture URL</h6>
+          <input type="text" id="editcrafteraccount-image" value='' required />
+          <label for="editcrafteraccount-profilepicture"></label>
+        </div>
+        <div id='' onclick="adminCheck(); editMemberSubmit(this.id)" class="btn orange editmember-submit">Submit Changes
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+  <div id='modal-productpagecrafter' class="modal card blue darken-2 modal-widthadjust-crafter">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img id='productpagecrafter-image' class="activator productpagecrafter-image" src="">
+    </div>
+    <div class="card-content">
+      <span class='clickable'>
+        <h4 class='activator Header-margin-adjust black-text bold' id='productpagecrafter-displayname'></h4>
+      </span>
+      <div class="divider black"></div>
+      <br>
+      <p class="bold-und">Profession(s)</p>
+      <p id="productpagecrafter-professions"></p><br>
+      <p class="bold-und">Discord</p>
+      <p id='productpagecrafter-discord'></p><br>
+      <p class="bold-und">Ashes Character IGN</p>
+      <p id="productpagecrafter-ign">}</p>
+    </div>
+    <div class="card-reveal grey">
+      <span class="bold-und card-title grey-text text-darken-4">
+        <h4>About Me<i class="material-icons right small">close</i></h4>
+      </span>
+      <p id="productpagecrafter-aboutme"></p>
+    </div>
+  </div>
+  </div>
+
+  <main id="content" class="parallax">
+    <div class="row hide-on-small-and-down" style="padding-top: 40px;">
+      <div class="col s3"></div>
+      <div class="col s6 Offset-S3">
+        <div class="card z-depth-4">
+          <div class="card-image">
+            <img class="intro-page-height-adjust" src="Images/Header.jpg">
+          </div>
+
+          <!--CONTENT-->
+          <div class="card-content black">
+            <div class="row">
+              <div class="col s12">
+                <blockquote class="blockquote-orange">
+                  <h4 class="white-text">Our Mission</h4>
+                </blockquote>
+                <p class="white-text">
+                  This guild's goal is to forge not only the best wares in the land of Verra, but a strong bond among
+                  its members. Together we will strive to gather, create, and uncover everything that Ashes of Creation
+                  has to offer. Fashioning a pristine suit of armor or fostering sensational bestial companions will be
+                  effortless through the good communication and friendship of your fellow guild-mates.</p>
+              </div>
+            </div>
+            <div class="section"></div>
+
+            <div class="row black">
+              <div class="col s12 no-padding">
+                <ul class="tabs grey darken-4">
+                  <li class="tab col s6"><a href="#hometab1" class="orange-text">Guild News</a></li>
+                  <li class="tab col s6"><a href="#hometab2" class="orange-text hometabs">Want to Join?</a></li>
+                </ul>
+              </div>
+              <div id="hometab1" class="col s12 grey darken-3">
+                <div class="row">
+                  <div class="col s12">
+                    <div class="card grey darken-4 home-card-curve-large">
+                      <h5 class="orange-text bold-und center-align">This is News</h5>
+                      <p class="white-text news-pad">Integer vehicula ut libero sed porttitor. Donec sollicitudin est
+                        ligula,
+                        eget bibendum diam
+                        condimentum at. Donec vel risus ligula. Mauris aliquet erat eleifend venenatis ultrices. Morbi
+                        eu tellus ac tortor dapibus congue. Mauris ultricies tempor lectus, sed dapibus magna.
+                        Pellentesque scelerisque urna in metus laoreet dapibus. Suspendisse at metus vitae elit eleifend
+                        varius. Vivamus nec augue sit amet quam mattis pretium.</p><br>
+                      <p class="white-text news-pad">Integer vehicula ut libero sed porttitor. Donec sollicitudin est
+                        ligula,
+                        eget bibendum diam
+                        condimentum at. Donec vel risus ligula. Mauris aliquet erat eleifend venenatis ultrices. Morbi
+                        eu tellus ac tortor dapibus congue. Mauris ultricies tempor lectus, sed dapibus magna.
+                        Pellentesque scelerisque urna in metus laoreet dapibus. Suspendisse at metus vitae elit eleifend
+                        varius. Vivamus nec augue sit amet quam mattis pretium.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="hometab2" class="col s12 grey darken-3">
+                <div class="section"></div>
+                <div class="row">
+                  <div class="col s6 center-align">
+                    <div class="card grey darken-4 home-card-curve">
+                      <h5 class="orange-text bold-und">What We Offer:</h5>
+                      <ul class="white-text circle-list">
+                        <li class="bold">Max guild size of 50</li>
+                        <li>---</li>
+                        <li class="bold">Friendly family atmosphere</li>
+                        <li>---</li>
+                        <li class="bold">Open communication and constructive criticism is valued</li>
+                        <li>---</li>
+                        <li class="bold">Ability to move up within the guild</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="col s6 center-align">
+                    <div class="card grey darken-4 home-card-curve">
+                      <h5 class="orange-text bold-und">Who We Want:</h5>
+                      <ul class="white-text circle-list">
+                        <li class="bold">Craft-centric players</li>
+                        <li>---</li>
+                        <li class="bold">Caravan guards (PvP)</li>
+                        <li>---</li>
+                        <li class="bold">Material Farmers (PvE)</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col s12 center-align">
+                    <div class="card grey darken-4 home-card-curve-large">
+                      <h5 class="orange-text bold-und">Requirments:</h5>
+                      <ul class="white-text circle-list">
+                        <li class="bold">Applicants must be 18+</li>
+                        <li>---</li>
+                        <li class="bold">Respectful and conduct themselves positively in the Ashes of Creation community
+                        </li>
+                        <li>---</li>
+                        <li class="bold"> Strong focus on crafting, trading, and caravan defense/exploration</li>
+                        <li>---</li>
+                        <li class="bold">Ability to accept constructive criticism and follow directions</li>
+                        <li>---</li>
+                        <li class="bold">Must be willing to utilize discord as it is the preferred form of communication
+                        </li>
+                        <li>---</li>
+                        <li class="bold">Participate in a short interview</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col s4"></div>
+                  <div class="col s4 btn orange"><a href="https://forms.gle/AUuduiuHzY44c7fk6" class="white-text">Apply
+                      for Membership</a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+  </main>
+
+  <footer class="page-footer black">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">StarLight Foundry</h5>
+          <p class="grey-text text-lighten-4">Tailor made for you!</p>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-functions.js"></script>
+  <script>
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    var firebaseConfig = {
+      apiKey: "AIzaSyAsLXZFb6PLOhc2_eVyeltnf-l8-W08mmU",
+      authDomain: "guildwebsiteuat.firebaseapp.com",
+      databaseURL: "https://guildwebsiteuat-default-rtdb.firebaseio.com",
+      projectId: "guildwebsiteuat",
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    // make auth and firestore references
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+    const functions = firebase.functions();
+
+    // update firestore settings
+    db.settings({ timestampsInSnapshots: true });
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="js/index.js"></script>
+  <script src="js/auth.js"></script>
+
+  <script>
+    $(document).ready(function () {
+      $('select').formSelect();
+    });
+  </script>
+</body>
+
+</html>

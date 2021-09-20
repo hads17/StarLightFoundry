@@ -1,0 +1,164 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+
+.page-footer {
+    background-color: black;
+}
+
+.background-picture {
+  background: url(../Images/starry-night-sky-2890467.jpg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.discord-image {
+  height: 32px;
+  width: 32px;
+  vertical-align: middle;
+}
+
+
+
+.parallax {
+  /* The image used */
+  background-image: url("../Images/background2.jpg");
+
+  /* Full height */
+  height: 100%;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.black-text-border {
+  text-shadow: 4px 4px black;
+}
+
+.grey-text-border {
+  text-shadow: 2px 2px grey;
+}
+
+.size-adjust {
+  background-image: url("../images/Guild-Name.png");
+}
+
+.superdarkblue {
+  background-color: #070129;
+}
+
+.intro-page-height-adjust {
+  height: 400px;
+}
+
+.blockquote-orange {
+  margin: 20px 0;
+  padding-left: 1.5rem;
+  border-left: 5px solid #ff9800;
+}
+.blockquote-purple {
+  margin: 20px 0;
+  padding-left: 1.5rem;
+  border-left: 5px solid #7b1fa2;
+}
+.blockquote-blue {
+  margin: 20px 0;
+  padding-left: 1.5rem;
+  border-left: 5px solid #1976d2;
+}
+
+.nav-highlight:hover {
+  background-color: rgb(41, 41, 41);
+}
+
+.product-highlight:hover {
+  background-color: rgb(145, 145, 145);
+  cursor: pointer;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.bold {
+  font-weight: bold;
+}
+.bold-und {
+  font-weight: bold;
+  text-decoration: underline;
+}
+.und {
+  text-decoration: underline;
+}
+
+.Header-margin-adjust {
+  margin: 0px;
+}
+
+.modal-widthadjust-crafter{
+  width: 30%;
+  height: auto;
+}
+
+.productpagecrafter-spanadjust{
+  font-size: 30px;
+  font-weight: normal;
+}
+
+.table-border {
+  border-radius: 20px;
+}
+
+.card-round-edges{
+  border-radius: 25px;
+}
+
+.card-round-edges-image{
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
+
+.member-card-image {
+  height: 50%;
+  opacity: 100%;
+}
+
+.circle-list {
+  list-style: circle inside;
+}
+
+.home-card-curve{
+  border-radius: 25px;
+  height: 250px;
+}
+
+.home-card-curve-large{
+  border-radius: 25px;
+  height: 300px;
+}
+
+.productpagecrafter-image {
+  height: 360px
+}
+
+.hometabs {
+  border-color: orange;
+}
+
+.news-pad {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.member-card {
+  height: 25%;
+}

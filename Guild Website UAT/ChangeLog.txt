@@ -1,0 +1,30 @@
+12/31/2020
+--- Bug Fixes ---
+-Logging out from an admin account and then signing into a non-admin account no longer keeps the admin specific fields visible
+
+--- Features Added ---
+- Create Products
+- View your own Products
+- View all Products
+- view specific member's Products
+- Ability to delete products on the 'My Products' tab
+- View your account Info
+- Edit your account Info
+-Added a Members List that lists out all the members and seperates them based off Leadership, Officers, and members
+-The Member's List displays the account info for each member and allows users to click a button to open that member's product list.
+-added users ability to add a URL link in their account info to update their profile pic.
+
+--- Known Issues ---
+-Footer tab Links don't work
+
+
+
+01/01/2020
+--- Bug Fixes ---
+-fixed issue where a user who wasn't signed in couldn't open individual member's products list.
+
+--- Features Added ---
+- Added edit button in the 'My Products tab', once clicked it opens a modal that displays the item information that you clicked the edit button for
+- Allowed the edit modal to submit updated product information
+
+--- Known Issues ---
